@@ -9,10 +9,13 @@
 
 using namespace std;
 
+vector<int> primes;
+
+
 bool divide2(int num)
 {
 	if (num == 2)
-		return true;
+		return false;
 	else if (num %2 == 0)
 		return true;
 	else
@@ -21,7 +24,7 @@ bool divide2(int num)
 bool divide3(int num)
 {
 	if (num == 3)
-		return true;
+		return false;
 	else if (num %3 == 0)
 		return true;
 	else
@@ -30,7 +33,7 @@ bool divide3(int num)
 bool divide5(int num)
 {
 	if (num == 5)
-		return true;
+		return false;
 	else if (num %5 == 0)
 		return true;
 	else
@@ -39,7 +42,7 @@ bool divide5(int num)
 bool divide7(int num)
 {
 	if (num == 7)
-		return true;
+		return false;
 	else if (num %7 == 0)
 		return true;
 	else
@@ -49,15 +52,38 @@ bool divide7(int num)
 void calcPrime(int number)
 {
 	int i;
-	for (i = 0; i < number; i++)
-	{
-		if ((divide2(i) == true) && (divide3(i) == true) && (divide5(i) == true) && (divide7(i) == true))
-		{
-			cout << i << endl;
-		}
-		else
-		{
 
+	for (i = 2; number > 0; i++ )
+	{
+		bool isPrime = true;
+		for (int j = 2; j < i; ++j)
+		{
+			if (i % j == 0)
+			{
+				isPrime = false;
+				break;
+			}
+		}
+		if (isPrime)
+		{
+//			cout << i << endl;
+			primes.push_back(i);
+		}
+		--number;
+	}
+	cout << "--------------------------\n";
+
+}
+void diviPrime(int number)
+{
+	int i;
+	double hrm;
+	for (i = 0; i < primes.size(); i++)
+	{
+		hrm = static_cast<double>(number) / static_cast<double>(primes[i]);
+		if (hrm == (int)hrm)
+		{
+			cout << primes[i] << endl;
 		}
 	}
 }
@@ -69,7 +95,7 @@ int main()
 		cout << "Number to Factor: ";
 		cin >> prime;
 		calcPrime(prime);
-
+		diviPrime(prime);
 	}
 	return 0;
 }
