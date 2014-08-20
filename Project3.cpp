@@ -12,42 +12,6 @@ using namespace std;
 vector<int> primes;
 
 
-bool divide2(int num)
-{
-	if (num == 2)
-		return false;
-	else if (num %2 == 0)
-		return true;
-	else
-		return false;
-}
-bool divide3(int num)
-{
-	if (num == 3)
-		return false;
-	else if (num %3 == 0)
-		return true;
-	else
-		return false;
-}
-bool divide5(int num)
-{
-	if (num == 5)
-		return false;
-	else if (num %5 == 0)
-		return true;
-	else
-		return false;
-}
-bool divide7(int num)
-{
-	if (num == 7)
-		return false;
-	else if (num %7 == 0)
-		return true;
-	else
-		return false;
-}
 
 void calcPrime(int number)
 {
@@ -80,8 +44,8 @@ void diviPrime(int number)
 	double hrm;
 	for (i = 0; i < primes.size(); i++)
 	{
-		hrm = static_cast<double>(number) / static_cast<double>(primes[i]);
-		if (hrm == (int)hrm)
+//		hrm = number / primes[i];
+		if (number % primes[i] == 0)
 		{
 			cout << primes[i] << endl;
 		}
