@@ -6,53 +6,47 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "math.h"
 
 using namespace std;
 
 vector<int> primes;
 
-
-
-void calcPrime(int number)
-{
+void calcPrime(int number) {
 	int i;
+	double numSqrt = sqrt(number);
+	int doub = (int) numSqrt;
 
-	for (i = 2; number > 0; i++ )
-	{
+	cout << doub << " Doub" << endl;
+	for (i = 2; doub > 0; i++) {
 		bool isPrime = true;
-		for (int j = 2; j < i; ++j)
-		{
-			if (i % j == 0)
-			{
+		for (int j = 2; j < i; ++j) {
+			if (i % j == 0) {
 				isPrime = false;
 				break;
 			}
 		}
-		if (isPrime)
-		{
-//			cout << i << endl;
+		if (isPrime) {
+			//cout << i << endl;
 			primes.push_back(i);
 		}
-		--number;
+		--doub;
 	}
 	cout << "--------------------------\n";
 
 }
-void diviPrime(int number)
-{
+void diviPrime(int number) {
 	int i;
 	double hrm;
-	for (i = 0; i < primes.size(); i++)
-	{
-//		hrm = number / primes[i];
-		if (number % primes[i] == 0)
-		{
-			cout << primes[i] << endl;
+	cout << "Prime Size: " << primes.size() << endl;
+
+	for (i = 0; i < primes.size(); i++) {
+		if (number % primes[i] == 0) {
+			cout << "Prime: " << primes[i] << endl;
 		}
 	}
 }
-int main()
-{
+int main() {
 	{
 		int prime;
 
