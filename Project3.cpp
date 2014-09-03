@@ -12,7 +12,7 @@ using namespace std;
 
 vector<int> primes;
 
-void calcPrime(int number) {
+void calcPrime(long long number) {
 	int i;
 	double numSqrt = sqrt(number);
 	int doub = (int) numSqrt;
@@ -35,7 +35,7 @@ void calcPrime(int number) {
 	cout << "--------------------------\n";
 
 }
-void diviPrime(int number) {
+void diviPrime(long long number) {
 	int i;
 	double hrm;
 	cout << "Prime Size: " << primes.size() << endl;
@@ -48,7 +48,7 @@ void diviPrime(int number) {
 }
 int main() {
 	{
-		int prime;
+		long long prime;
 
 		cout << "Number to Factor: ";
 		cin >> prime;
